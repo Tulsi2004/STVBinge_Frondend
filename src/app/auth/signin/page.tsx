@@ -45,6 +45,43 @@ const Signin = () => {
             setErrors(validationErrors);
             return;
         }
+
+        fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/auth/login`,{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+            credentials: 'include'
+        })
+        .then((res)=>{
+            return res.json();
+        })
+        .then(async(response)=>{
+            if (response.ok) {
+                toast(response.message,{
+                    type:'success',
+                    position: 'top-right',
+                    autoClose: 2000
+                })
+                window.location.href='/' //sending user to home page
+            }
+            else {
+                toast(response.message,{
+                    type:'error',
+                    position: 'top-right',
+                    autoClose: 2000
+                });
+            }
+        })
+        .catch((error)=>{
+            toast(error.message,{
+                type:'error',
+                position: 'top-right',
+                autoClose: 2000
+            });
+        })
+
     }
 
     return(

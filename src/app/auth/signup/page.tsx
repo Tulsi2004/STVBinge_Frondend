@@ -42,7 +42,6 @@ export default function Signup() {
 
         e.preventDefault();
 
-        console.log(formData)
         setErrors({})
 
         const validationErrors: Record<string, string> = {};
@@ -55,6 +54,9 @@ export default function Signup() {
         if (formData.password !== formData.confirmPassword) {
             validationErrors.confirmPassword = 'Passwords do not match';
         }
+        if (!formData.name) {
+            validationErrors.name = 'Name is required';
+        }
         if (!formData.city) {
             validationErrors.city = 'City is required';
         }
@@ -62,6 +64,44 @@ export default function Signup() {
             setErrors(validationErrors);
             return;
         }
+
+        console.log(process.env.NEXT_PUBLIC_BACKEND_API)
+
+        fetch(`${process.env.NEXT_PUBLIC_BACKEND_API}/auth/register`,{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+        .then((res)=>{
+            return res.json();
+        })
+        .then((response)=>{
+            if(response.ok){
+                setFormData(
+                    {
+                        name: '',
+                        email: '',
+                        password: '',
+                        confirmPassword: '',
+                        city: ''
+                    }
+                )
+                window.location.href='/auth/signin'
+            }
+            else{
+                toast.error(response.message,{
+                    type: 'error',
+                    position: 'top-right',
+                    autoClose: 2000,
+                });
+            }
+        })
+        .catch((err)=>{
+            toast.error(err.message);
+            console.log(err);
+        })
     }
         return (
             <div className='authout'>
