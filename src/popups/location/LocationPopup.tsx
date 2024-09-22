@@ -1,8 +1,8 @@
 "use client"
 import React from 'react'
-//import Select from 'react-select'
+import Select from 'react-select'
 import '../Popup.css'
-//import axios from 'axios'
+import axios from 'axios'
 import { toast } from 'react-toastify'
 const LocationPopup = (
     {

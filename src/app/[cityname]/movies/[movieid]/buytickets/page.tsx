@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
-//import DatePicker from "react-horizontal-datepicker";
+// @ts-ignore
+import DatePicker from "react-horizontal-datepicker";
 import './BuyTicketsPage.css'
 import Link from 'next/link';
 import { usePathname, useParams } from 'next/navigation';
@@ -146,7 +147,7 @@ const BuyTicketsPage = () => {
                             <h1>{movie.title} - {movie.language}</h1>
                             <h3>{movie.genre.join(",")}</h3>
                         </div>
-                        {/* <DatePicker getSelectedDay={
+                        {<DatePicker getSelectedDay={
                             (date: any) => {
                                 console.log(date)
                                 setSelectedDate(date)
@@ -158,7 +159,7 @@ const BuyTicketsPage = () => {
                             }
                             labelFormat={"MMMM"}
                             color={"rgb(248, 68, 100)"}
-                        /> */}
+                        /> }
                     </div>
 
                     {
@@ -166,7 +167,7 @@ const BuyTicketsPage = () => {
                         <div className='screens'>
                             {
 //give the type value in type page for screen and index, it is giving a warning message below. It can be avoided by giving for eg screen:any
-                     theatres.map((screen, index) => {
+                     theatres.map((screen:any, index:number) => {
                                     let screenid = screen._id
                                     return (
                                         <div className='screen' key={index}>

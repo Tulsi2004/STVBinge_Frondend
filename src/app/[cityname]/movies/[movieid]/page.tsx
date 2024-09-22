@@ -227,7 +227,7 @@ const MoviePage=()=> {
                                     className="mySwiper"
                                 >
                                     {
-                                        movie.cast.map((cast, index) => {
+                                        movie.cast.map((cast:any, index:number) => {
                                             return (
                                                 <SwiperSlide key={index}>
                                                     <CelebCard {...cast} />
@@ -272,7 +272,7 @@ const MoviePage=()=> {
                                     className="mySwiper"
                                 >
                                     {
-                                        movie.crew.map((cast, index) => {
+                                        movie.crew.map((cast:any, index:number) => {
                                             return (
                                                 <SwiperSlide key={index}>
                                                     <CelebCard {...cast} />
