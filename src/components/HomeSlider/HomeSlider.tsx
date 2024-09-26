@@ -16,10 +16,10 @@ const HomeSlider = () => {
 
 const [banners, setBanners]=useState([
   {
-    imgUrl: 'https://assets-in.bmscdn.com/promotions/cms/creatives/1721806430897_thegarfieldmovie10minpreviewweb.jpg'
+    imgUrl: 'https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/stree-2-et00364249-1721725490.jpg'
   },
   {
-    imgUrl: 'https://assets-in.bmscdn.com/promotions/cms/creatives/1717082518448_playcardweb.jpg'
+    imgUrl: 'https://assets-in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/tumbbad-et00079092-1726221741.jpg'
   }
 
 ])

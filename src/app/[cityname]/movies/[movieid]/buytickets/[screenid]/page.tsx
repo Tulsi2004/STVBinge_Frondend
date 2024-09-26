@@ -51,6 +51,7 @@ const SelectSeatPage = () => {
                 credentials: 'include'
             });
             const data = await response.json();
+            console.log(JSON.stringify(data),"client side");
             if (data.ok) {
                 setMovie(data.data);
             } else {

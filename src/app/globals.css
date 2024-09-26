@@ -5,8 +5,8 @@
 }
 
 :root{
-  --col1: rgb(155, 115, 215); /* For Navbar Button*/
-  --col2: #9b9fd7; /* For Navbar */
+  --col1: rgb(48, 63, 66); /* For Navbar Button*/
+  --col2: #347928; /* For Navbar */
   --errorcol: rgb(255, 0, 0);
 }
 
